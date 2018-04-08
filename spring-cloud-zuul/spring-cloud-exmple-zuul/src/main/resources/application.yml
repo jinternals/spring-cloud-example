@@ -1,0 +1,14 @@
+server:
+  port: 80
+
+instanceId: "${instanceId}"
+
+zuul:
+  ignored-services: '*'
+  routes:
+    users:
+      serviceId: users
+      path: /users/*
+      url: http://user-service-${instanceId}:8081/
+
+

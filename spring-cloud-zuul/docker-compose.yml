@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+   user-service-0:
+      image: mradul/spring-cloud-example-user-service:latest
+      container_name: user-service-0
+      restart: always
+      environment:
+        instanceId: 0
+      ports:
+        - 8082:8081
+
+   user-service-1:
+         image: mradul/spring-cloud-example-user-service:latest
+         container_name: user-service-1
+         restart: always
+         environment:
+           instanceId: 1
+         ports:
+           - 8083:8081
+
+   zuul-0:
+      image: mradul/spring-cloud-exmple-zuul:latest
+      container_name: zuul-0
+      environment:
+        instanceId: 0
+      restart: always
+      ports:
+         - 80
+
+   zuul-1:
+      image: mradul/spring-cloud-exmple-zuul:latest
+      container_name: zuul-1
+      environment:
+        instanceId: 1
+      restart: always
+      ports:
+        - 80
+
+   nginx:
+      image: nginx:latest
+      container_name: nginx
+      ports:
+        - "80:80"
+      volumes:
+        - ./infra/nginx/nginx.conf/:/etc/nginx/nginx.conf
+
+
+
