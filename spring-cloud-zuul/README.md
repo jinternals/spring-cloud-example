@@ -9,6 +9,7 @@ mvn initialize docker:build
 docker-compose -f docker-compose.yml up -d --build
 ```
 
+![alt text](./Zuul Diagram.png)
 
 #
 ### Links :
