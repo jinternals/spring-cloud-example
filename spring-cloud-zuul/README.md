@@ -9,7 +9,10 @@ mvn initialize docker:build
 docker-compose -f docker-compose.yml up -d --build
 ```
 
-![alt text](./Zuul Diagram.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jinternals/spring-cloud-example/master/spring-cloud-zuul/Zuul%20Diagram.png">
+</p>
+
 
 #
 ### Links :
