@@ -2,28 +2,20 @@ server:
   port: 80
 
 management:
-  context-path: /admin
-  security:
-    enabled: true
-
-security:
-  basic:
-    enabled: false
-  user:
-    name: ${user.name}
-    password: ${user.password}
+  endpoints:
+    web:
+      base-path: /admin
 
 eureka:
   instance:
     instance-id: ${spring.application.name}-${instanceId}-${zone}
     prefer-ip-address: true
-    statusPageUrlPath: ${management.context-path}/info
-    healthCheckUrlPath: ${management.context-path}/health
+    statusPageUrlPath: ${management.endpoints.web.base-path}/info
+    healthCheckUrlPath: ${management.endpoints.web.base-path}/health
     metadataMap:
       zone: ${zone}
-      user.name: ${security.user.name}
-      user.password: ${security.user.password}
-      management.context-path: ${management.context-path}
+      some.data: some-demo-data
+      management.context-path: ${management.endpoints.web.base-path}
   client:
     fetch-registry: true
     register-with-eureka: true

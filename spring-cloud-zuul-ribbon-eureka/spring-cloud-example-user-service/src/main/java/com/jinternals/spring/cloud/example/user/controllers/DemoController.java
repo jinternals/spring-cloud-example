@@ -15,8 +15,6 @@ public class DemoController {
     @Value("${eureka.instance.metadataMap.zone}")
     private String zone;
 
-
-
     @GetMapping
     DemoMessage getMessage() {
         return new DemoMessage("Hello from instance : "+ instanceId +" zone :"+ zone);
